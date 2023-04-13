@@ -16,16 +16,16 @@ type ReturnEvent struct {
   Message string '`json:"return email"`'
 }
 
-
+func main()  {
+  lambda.Start(HandleRequest)
+}
 
 func HandleRequest(event MyEvent)(string error) {
   return Response{Message:
   fmt.Sprintf("Name: %s ,Email: %d,Comment: %g",
   event.name, event.email, event.comment)
-},nil
+  },nil
 
 }
 
-func main()  {
-  lambda.Start(HandleRequest)
-}
+
